@@ -1,8 +1,18 @@
 /* eslint-disable   no-console */
 
+const fs = require('fs');
+const path = require('path');
 const checker = require('./lib/checker');
 const status = require('./lib/status');
 const cli = require('cli-color');
+
+function getGitPath(){
+    let str = './';
+    while(!fs.existsSync(path.join(__dirname + str) + '.git')){
+        str += '../';
+    }
+    return str.slice(0,str.length - 3) + '.git' + '/COMMIT_EDITMSG';
+}
 
 function runner(message, customKeywords = [], custormPostfixes = []) {
     console.log(cli.green('检测中...\n'));
@@ -20,6 +30,5 @@ function runner(message, customKeywords = [], custormPostfixes = []) {
 
 module.exports = {
     runner,
-    checker,
-    status
+    gitPath: getGitPath()
 };

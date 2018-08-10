@@ -1,8 +1,10 @@
-const fs = require('fs');
-const path = require('path');
-const runner = require('./index').runner;
-console.log(path.join(__dirname))
-console.log(fs.existsSync(path.join(__dirname + '/') + '.git'))
+process.exitCode = 0;
+// const fs = require('fs');
+// const path = require('path');
+// const runner = require('./index').runner;
+// console.log(path.join(__dirname))
+// console.log(fs.existsSync(path.join(__dirname + '/') + '.git'))
+// console.log(process.argv)
 // console.log(path.dirname('./src/index/index.html')) //删除最后一条斜杠后的内容，包括斜杠本身 输出./src/index
 // console.log(path.extname('./src/index/index.html'))   //输出最后一个.后的内容（包括.本身），.在最前面输出空
 // console.log(path.basename('./src/index/page2.html','.html')) //输出page2
