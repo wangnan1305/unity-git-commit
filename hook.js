@@ -1,4 +1,9 @@
-process.exitCode = 0;
+/* eslint-disable   no-console */
+const fs = require('fs');
+const path = require('path');
+const gitPath = require('./index').gitPath;
+console.log(gitPath());
+console.log(';asdas');
 // const fs = require('fs');
 // const path = require('path');
 // const runner = require('./index').runner;

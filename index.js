@@ -7,13 +7,19 @@ const status = require('./lib/status');
 const cli = require('cli-color');
 
 function getGitPath(){
-    let str = './';
-    while(!fs.existsSync(path.join(__dirname + str) + '.git')){
-        str += '../';
-    }
-    return str.slice(0,str.length - 3) + '.git' + '/COMMIT_EDITMSG';
-}
+    let str = '/';
+    console.log(path.join(__dirname) + '.git')
+    if(fs.existsSync(path.join(__dirname) + '.git')){
 
+        return __dirname;
+    } else {
+        while(!fs.existsSync(path.join(__dirname + str) + '.git')){
+            str += '../';
+        }
+        return str.slice(0,str.length - 3) + '.git' + '/COMMIT_EDITMSG';
+    }
+}
+console.log(getGitPath());
 function runner(message, customKeywords = [], custormPostfixes = []) {
     console.log(cli.green('检测中...\n'));
     const result = checker(message, customKeywords, custormPostfixes);
