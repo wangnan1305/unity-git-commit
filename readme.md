@@ -1,6 +1,6 @@
-# git commit message 语法检测
+# 统一 git commit 格式
 
->自动检测git commit message是否符合语法
+>自动检测commit message是否符合语法
 
 ## 安装
 
