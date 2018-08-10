@@ -2,8 +2,8 @@
 const fs = require('fs');
 const path = require('path');
 const gitPath = require('./index').gitPath;
-console.log(gitPath());
-console.log(';asdas');
+console.log(gitPath);
+
 // const fs = require('fs');
 // const path = require('path');
 // const runner = require('./index').runner;
