@@ -12,6 +12,9 @@ function getGitPath(){
         return __dirname + '/.git/COMMIT_EDITMSG';
     } else {
         while(!fs.existsSync(path.join(__dirname + str) + '.git')){
+            if(path.join(__dirname + str) === '/'){
+                throw '项目没有.git目录，无法识别commit';
+            }
             str += '../';
         }
         return str.slice(0,str.length - 3) + '.git/COMMIT_EDITMSG';

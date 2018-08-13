@@ -15,11 +15,11 @@ try {
 } catch (e) {
     console.log('检测程序运行出错...', e);
 }`;
-mkdirSync('../git-bash', 0, function (e) {
+mkdirSync('../../git-bash', 0, function (e) {
     if (e) {
         throw e;
     } else {
-        fs.writeFile('../git-bash/commit-msg.js', data , function(err){
+        fs.writeFile('../../git-bash/commit-msg.js', data , function(err){
             if(e) throw e;
         });
     }
