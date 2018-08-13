@@ -1,28 +1,51 @@
-/* eslint-disable   no-console */
-const fs = require('fs');
-const path = require('path');
-const gitPath = require('./index').gitPath;
-console.log(gitPath);
-console.log('运行hook');
+#!/usr/bin/env node
 
-// const fs = require('fs');
-// const path = require('path');
-// const runner = require('./index').runner;
-// console.log(path.join(__dirname))
-// console.log(fs.existsSync(path.join(__dirname + '/') + '.git'))
-// console.log(process.argv)
-// console.log(path.dirname('./src/index/index.html')) //删除最后一条斜杠后的内容，包括斜杠本身 输出./src/index
-// console.log(path.extname('./src/index/index.html'))   //输出最后一个.后的内容（包括.本身），.在最前面输出空
-// console.log(path.basename('./src/index/page2.html','.html')) //输出page2
-// console.log(path.join(__dirname + '/foo', 'bar', 'baz/asdf','quux','..')) //join会执行里面的路径，输出结果，..会忽略掉quux路径。参数length为0时输出.
-// try {
-//     let message = fs.readFileSync('../../../../.git/COMMIT_EDITMSG', 'utf-8');
-//     const lines = message.split('\n');
-//     if (!lines[lines.length - 1]) {
-//         lines.pop();
-//     }
-//     message = lines.join('\n');
-//     runner(message);
-// } catch (e) {
-//     console.log('检测程序运行出错...', e);
-// }
+var fs = require('fs');
+var path = require('path');
+var gitPath = require('./index').gitPath;
+var data = `const fs = require('fs');
+const runner = require('unity-git-commit').runner;
+try {
+    let message = fs.readFileSync('${gitPath}', 'utf-8');
+    const lines = message.split('\\n');
+    if (!lines[lines.length - 1]) {
+        lines.pop();
+    }
+    message = lines.join('\\n');
+    runner(message);
+} catch (e) {
+    console.log('检测程序运行出错...', e);
+}`;
+mkdirSync('../git-bash', 0, function (e) {
+    if (e) {
+       throw e;
+    } else {
+        fs.writeFile('../git-bash/commit-msg.js', data , function(err){
+            if(e) throw e;
+        });
+    }
+})
+function mkdirSync(url, mode, fn) {
+    var arr = url.split('/');
+    mode = mode || 0777;
+    if (arr[0] === '.') {
+        arr.shift();
+    }
+    if (arr[0] === '..') {
+        arr.splice(0, 2, arr[0] + "/" + arr[1]);
+    }
+    arr.length && create(arr.shift());
+
+    function create(p) {
+        if (!fs.existsSync(p)) {
+            fs.mkdirSync(p, mode);
+        }
+        if (arr.length) {
+            create(p + '/' + arr.shift());
+        } else {
+            fn && fn();
+        }
+    }
+}
+
+
