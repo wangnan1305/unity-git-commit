@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 var fs = require('fs');
-var path = require('path');
 var gitPath = require('./index').gitPath;
 var data = `const fs = require('fs');
 const runner = require('unity-git-commit').runner;
@@ -18,13 +17,13 @@ try {
 }`;
 mkdirSync('../git-bash', 0, function (e) {
     if (e) {
-       throw e;
+        throw e;
     } else {
         fs.writeFile('../git-bash/commit-msg.js', data , function(err){
             if(e) throw e;
         });
     }
-})
+});
 function mkdirSync(url, mode, fn) {
     var arr = url.split('/');
     mode = mode || 0777;
