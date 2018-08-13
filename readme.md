@@ -5,8 +5,13 @@
 ## 安装
 
 ```bash
-npm install happy-git-commit-message-checker --save-dev
+$ npm install -g unity-git-commit
+$ npm install --save-dev husky
 ```
+## 快速使用
+
+* 在当前项目的`package.json`scripts字段增加一行 "commitmsg": "node ./git-bash/commit-msg.js"
+* 执行命令hook
 
 ## 语法规则
 
@@ -67,9 +72,3 @@ txt -> {^【,^】}
 ### getStatus()
 
 返回值：<Object>{<status:number>:<desc:string>}
-
-## 附录
-
-### 如何获取commit message？
-
->需要调用者自己读取/.git/COMMIT_EDITMSG文件内容，在commit-msg钩子触发时，Git会自动将message写入COMMIT_EDITMSG文件，读取即可

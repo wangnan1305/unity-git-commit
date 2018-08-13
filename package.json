@@ -1,7 +1,7 @@
 {
     "name": "unity-git-commit",
-    "version": "1.0.0",
-    "description": "",
+    "version": "1.0.1",
+    "description": "unity-git-commit",
     "main": "./index.js",
     "bin": {
         "hook": "./hook.js"
@@ -21,10 +21,10 @@
         "type": "git",
         "url": ""
     },
-    "author": "",
+    "author": "wangnan1305",
     "license": "ISC",
     "bugs": {
-        "url": ""
+        "url": "https://github.com/wangnan1305/unity-git-commit/issues"
     },
-    "homepage": ""
+    "homepage": "https://github.com/wangnan1305/unity-git-commit"
 }

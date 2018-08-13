@@ -34,5 +34,7 @@ function runner(message, customKeywords = [], custormPostfixes = []) {
 
 module.exports = {
     runner,
+    checker,
+    status,
     gitPath: getGitPath()
 };
