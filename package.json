@@ -3,9 +3,9 @@
     "version": "1.0.1",
     "description": "",
     "main": "./index.js",
-    // "bin": {
-    //     "hook": "./hook.js"
-    // },
+    "bin": {
+        "hook": "./hook.js"
+    },
     "devDependencies": {
         "chai": "^4.1.2",
         "eslint": "^4.19.1",

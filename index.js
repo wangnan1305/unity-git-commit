@@ -8,13 +8,13 @@ const cli = require('cli-color');
 
 function getGitPath(){
     let str = '/';
-    if(fs.existsSync(path.join(__dirname + str) + '.git')){
-        return __dirname;
+    if(fs.existsSync(path.join(__dirname) + '.git')){
+        return __dirname + '/.git/COMMIT_EDITMSG';
     } else {
         while(!fs.existsSync(path.join(__dirname + str) + '.git')){
             str += '../';
         }
-        return str.slice(0,str.length - 3) + '.git' + '/COMMIT_EDITMSG';
+        return str.slice(0,str.length - 3) + '.git/COMMIT_EDITMSG';
     }
 }
 

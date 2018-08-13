@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const gitPath = require('./index').gitPath;
 console.log(gitPath);
+console.log('运行hook');
 
 // const fs = require('fs');
 // const path = require('path');
