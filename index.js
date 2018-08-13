@@ -5,14 +5,15 @@ const path = require('path');
 const checker = require('./lib/checker');
 const status = require('./lib/status');
 const cli = require('cli-color');
+const cwd =  process.cwd();
 
 function getGitPath(){
     let str = '/';
-    if(fs.existsSync(path.join(__dirname) + '.git')){
-        return __dirname + '/.git/COMMIT_EDITMSG';
+    if(fs.existsSync(cwd + '/.git')){
+        return cwd + '/.git/COMMIT_EDITMSG';
     } else {
-        while(!fs.existsSync(path.join(__dirname + str) + '.git')){
-            if(path.join(__dirname + str) === '/'){
+        while(!fs.existsSync(path.join(cwd + str) + '.git')){
+            if(path.join(cwd + str) === '/'){
                 throw '项目没有.git目录，无法识别commit';
             }
             str += '../';

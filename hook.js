@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
-var fs = require('fs');
-var gitPath = require('./index').gitPath;
-var data = `const fs = require('fs');
+const fs = require('fs');
+const gitPath = require('./index').gitPath;
+const data = `const fs = require('fs');
 const runner = require('unity-git-commit').runner;
 try {
     let message = fs.readFileSync('${gitPath}', 'utf-8');
@@ -15,12 +15,13 @@ try {
 } catch (e) {
     console.log('检测程序运行出错...', e);
 }`;
-mkdirSync('../../git-bash', 0, function (e) {
+mkdirSync('./git-bash', 0, function (e) {
     if (e) {
         throw e;
     } else {
-        fs.writeFile('../../git-bash/commit-msg.js', data , function(err){
+        fs.writeFile('./git-bash/commit-msg.js', data , function(err){
             if(e) throw e;
+            console.log('create mkdir success')
         });
     }
 });
