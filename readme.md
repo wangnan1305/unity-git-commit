@@ -11,7 +11,8 @@ $ npm install --save-dev husky
 ## 快速使用
 
 * 在当前项目的`package.json`scripts字段增加一行 "commitmsg": "node ./git-bash/commit-msg.js"
-* 执行命令hook
+* 安装完unity-git-commit之后，执行npm link unity-git-commit，自动关联全局node_modules包
+* 执行命令hook，生成git-bash/commit-msg.js文件
 
 ## 语法规则
 

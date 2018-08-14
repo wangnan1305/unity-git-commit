@@ -18,7 +18,7 @@ function getGitPath(){
             }
             str += '../';
         }
-        return str + '../.git/COMMIT_EDITMSG';
+        return str + '.git/COMMIT_EDITMSG';
     }
 }
 
