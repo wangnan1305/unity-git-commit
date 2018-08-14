@@ -1,6 +1,6 @@
 {
     "name": "unity-git-commit",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "description": "unity-git-commit",
     "main": "./index.js",
     "bin": {
