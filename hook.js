@@ -1,9 +1,10 @@
 #!/usr/bin/env node
-
+/* eslint-disable   no-console */
 const fs = require('fs');
 const gitPath = require('./index').gitPath;
 const data = `const fs = require('fs');
 const runner = require('unity-git-commit').runner;
+
 try {
     let message = fs.readFileSync('${gitPath}', 'utf-8');
     const lines = message.split('\\n');
@@ -21,7 +22,7 @@ mkdirSync('./git-bash', 0, function (e) {
     } else {
         fs.writeFile('./git-bash/commit-msg.js', data , function(err){
             if(e) throw e;
-            console.log('create mkdir success')
+            console.log('create mkdir success');
         });
     }
 });
