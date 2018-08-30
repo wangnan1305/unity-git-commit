@@ -7,12 +7,12 @@ const runner = require('unity-git-commit').runner;
 
 try {
     let message = fs.readFileSync('${gitPath}', 'utf-8');
-    const lines = message.split('\\n');
+    const lines = message.split('\n');
     if (!lines[lines.length - 1]) {
         lines.pop();
     }
-    message = lines.join('\\n');
-    runner(message);
+    message = lines.join('\n');
+    runner(message, [], ['组件']);
 } catch (e) {
     console.log('检测程序运行出错...', e);
 }`;
