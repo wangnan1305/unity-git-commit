@@ -1,6 +1,6 @@
 # 统一 git commit 格式
 
->自动检测commit message是否符合语法
+>检测commit提交格式，强制统一commit格式，不符合规定格式commit提交失败
 
 ## 安装
 

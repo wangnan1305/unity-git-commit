@@ -1,6 +1,6 @@
 {
     "name": "unity-git-commit",
-    "version": "1.0.7",
+    "version": "1.0.8",
     "description": "unity-git-commit",
     "main": "./index.js",
     "bin": {
@@ -19,8 +19,9 @@
     },
     "repository": {
         "type": "git",
-        "url": ""
+        "url": "https://github.com/wangnan1305/unity-git-commit.git"
     },
+    "keywords": ["git","commit"],
     "author": "wangnan1305",
     "license": "ISC",
     "bugs": {
